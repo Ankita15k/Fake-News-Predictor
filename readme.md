@@ -39,13 +39,6 @@ To run the application on your **local machine** for testing:
     ```
     Access the app at: `http://127.0.0.1:5000/`
 
-### Deployment (Render Configuration)
-
-The application is configured for deployment using the following settings in Render:
-
-* **Build Command:** `pip install -r requirements.txt && python -c "import nltk; nltk.download('stopwords')"`
-* **Start Command:** `gunicorn app:app`
-
 ---
 
 ## 🛠️ Technology Stack
@@ -53,4 +46,4 @@ The application is configured for deployment using the following settings in Ren
 * **Backend Framework:** **Flask**
 * **Machine Learning:** **Scikit-learn** (for model and vectorizer)
 * **Text Processing:** **NLTK** (Stopword removal and Stemming)
-* **Hosting:** **Render**
+* **Hosting:** **Render** - https://fake-news-predictor-sci9.onrender.com
