@@ -1,0 +1,17 @@
+
+/venv
+/.venv
+/env
+
+__pycache__/
+*.pyc
+
+*.log
+
+.ipynb_checkpoints/
+
+Thumbs.db
+*.ini
+*.cfg
+
+.env
