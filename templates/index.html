@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Classifier - Render</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            resize: vertical;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result-box {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .reliable {
+            background-color: #e6ffe6;
+            color: #27ae60;
+            border: 1px solid #27ae60;
+        }
+        .fake {
+            background-color: #ffe6e6;
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📰 Fake News Classifier</h1>
+        <p>Enter the news article content below to check its reliability.</p>
+        
+        <form method="POST" action="/">
+            <label for="news_article" style="display: block; text-align: left; margin-bottom: 5px; font-weight: bold;">News Content:</label>
+            <textarea id="news_article" name="news_article" rows="10" 
+                      placeholder="Paste your news article here...">{{ input_text }}</textarea>
+            <button type="submit">Predict Reliability</button>
+        </form>
+
+        {% if result %}
+        <div class="result-box 
+            {% if 'Reliable' in result %}reliable
+            {% elif 'Fake' in result %}fake
+            {% endif %}">
+            <h2>Prediction: {{ result }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
